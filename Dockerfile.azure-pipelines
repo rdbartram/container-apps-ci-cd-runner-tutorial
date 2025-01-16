@@ -16,12 +16,18 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
     wget \
     software-properties-common
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update \
-    add-apt-repository ppa:rmescandon/yq \
-    apt-get update \
-    apt-get install -y -qq --no-install-recommends \
+################################
+# Install yq
+################################
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:rmescandon/yq
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends \
     yq
 
+################################
+# Install az
+################################
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 # Can be 'linux-x64', 'linux-arm64', 'linux-arm', 'rhel.6-x64'.
