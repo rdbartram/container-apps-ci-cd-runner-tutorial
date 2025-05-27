@@ -36,7 +36,7 @@ ENV TARGETARCH=linux-x64
 ################################
 # Install Terraform
 ################################
-ARG TERRAFORM_VERSION=1.9.8
+ARG TERRAFORM_VERSION=1.12.1
 
 
 # Download terraform for linux
