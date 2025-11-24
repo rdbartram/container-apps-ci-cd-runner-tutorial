@@ -11,4 +11,4 @@ steps:
   # Push final image
   - push:
       - $Registry/bt20/baseimages/nginx:latest
-    when: ["remove-old-image"]
+    when: ["tag-final"]
