@@ -8,10 +8,6 @@ steps:
   - cmd: docker tag nginx:1 $Registry/bt20/baseimages/nginx:latest
     id: tag-final
     when: ["pull-image"]
-  # delete old latest image
-  - cmd: az acr repository delete --name $Registry_Name --image $Registry/bt20/baseimages/nginx:latest --yes
-    id: remove-old-image
-    when: [ "tag-final" ]
   # Push final image
   - push:
       - $Registry/bt20/baseimages/nginx:latest
